@@ -22,8 +22,9 @@ header {
 .add-btn {
 	background-color: var(--color1);
 	color: var(--color4);
-	padding: 0.5rem 1rem;
-	font-size: 1.5rem;
+	padding: 0.8rem 1.5rem;
+	font-size: 1.2rem;
+	font-weight: 700;
 	border-radius: 1rem;
 	border-color: var(--color2);
 }
@@ -59,4 +60,53 @@ header {
 	font-size: 0.8rem;
 	font-weight: 700;
 	text-align: right;
+}
+
+dialog {
+	position: absolute;
+	top: 5rem;
+	background-color: var(--color4);
+	border: 1px solid black;
+	box-shadow: 0px 0px 100px black;
+	border-radius: 20px;
+	padding: 3rem 4rem 4rem 4rem;
+}
+
+form {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+form > div {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	grid-auto-rows: 2rem;
+	column-gap: 1.5rem;
+
+	padding: 0.4rem;
+	align-items: center;
+	justify-content: center;
+}
+
+form label {
+	color: #192a51;
+	font-weight: 800;
+	font-size: 0.8rem;
+	text-align: right;
+}
+
+form input {
+	border-radius: 5px;
+	background-color: var(--color5);
+}
+
+#submit-btn {
+	background-color: var(--color2);
+	color: var(--color5);
+	padding: 0.5rem 2.5rem;
+	font-size: 1.2rem;
+	font-weight: 700;
+	border-radius: 1rem;
+	border-color: var(--color3);
 }

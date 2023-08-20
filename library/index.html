@@ -8,13 +8,27 @@
     <link rel="stylesheet" href="style.css">
     <script src="code.js" defer></script>
   </head>
+  
   <body>
     <header>
       <h1>This is your library</h1>
-      <button class="add-btn">Add book</button>
+      <button class="add-btn">ADD BOOK</button>
     </header>
-    <div id="library">
 
-    </div>
+    <div id="library"></div>
+
+    <dialog id="add-window">
+      <form method="dialog">
+        <div>
+          <label for="title">TITLE</label>
+          <input type="text" name="title" id="title" placeholder="Metamorphosis"/>
+          <label for="author">AUTHOR</label>
+          <input type="text" name="author" id="author" placeholder="Kafka"/>
+          <label for="pages">PAGES</label>
+          <input type="number" name="pages" id="pages" placeholder="153"/>
+        </div>
+        <button id="submit-btn">ADD</button>
+      </form>
+    </dialog>
   </body>
 </html>
