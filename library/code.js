@@ -16,38 +16,43 @@ function displayBooks() {
 	}
 
 	for (let book of myLibrary) {
-		const card = createCard (book.title, book.author, book.pages)
+		const card = createCard(book)
 		library.appendChild(card)
 	}
 }
 
-function createCard( title, author, pages) {
+function createCard(book) {
 
 	const card = document.createElement("div")
 	card.classList.add("card");
 
-	const pTitle = document.createElement("p");
-	pTitle.classList.add("title");
-	pTitle.textContent = title;
-	card.appendChild(pTitle);
-
-	const pAuthor = document.createElement("p");
-	pAuthor.classList.add("author");
-	pAuthor.textContent = author;
-	card.appendChild(pAuthor);
-
-	const pPages = document.createElement("p");
-	pPages.classList.add("pages");
-	pPages.textContent = pages;
-	card.appendChild(pPages);	
+	for(let value of Object.keys(book)) {
+		let info = createInfo( value, book[value]);
+		card.appendChild(info[0])
+		card.appendChild(info[1])
+	}
 
 	return card;
 }
 
+function createInfo(name, value)  {
+
+	const pName = document.createElement("p");
+	pName.classList.add("value-name");
+	pName.textContent = name.toUpperCase();
+
+	const pValue = document.createElement("p");
+	pValue.classList.add("value");
+	pValue.textContent = value;
+
+	return [pName, pValue];
+}
+
 const myLibrary = [];
 
-addBookToLibrary(new book( "Metamorphosis", "Kafka", 50));
-addBookToLibrary(new book( "Metamorphosis", "Kafka", 50));
-addBookToLibrary(new book( "Metamorphosis", "Kafka", 50));
+for(let i = 0; i < 10; i++)
+	addBookToLibrary(new book( "Metamorphosis", "Kafka", 50));
+
+book1 = new book( "Metamorphosis", "Kafka", 50);
 
 displayBooks();
