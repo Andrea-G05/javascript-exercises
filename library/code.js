@@ -48,11 +48,33 @@ function createInfo(name, value)  {
 	return [pName, pValue];
 }
 
+function submitInfo (event) {
+	event.preventDefault();
+
+	let title = document.querySelector("#title");
+	let author = document.querySelector("#author");
+	let pages = document.querySelector("#pages")
+
+	addBookToLibrary(new book (
+		title.value, 
+		author.value, 
+		(pages.value - 0)));
+
+	dialog.close();
+
+	title.value = "";
+	author.value = "";
+	pages.value = 0;
+}
+
 const myLibrary = [];
 
 for(let i = 0; i < 10; i++)
 	addBookToLibrary(new book( "Metamorphosis", "Kafka", 50));
 
-book1 = new book( "Metamorphosis", "Kafka", 50);
-
 displayBooks();
+
+let dialog = document.querySelector("dialog");
+document.querySelector(".add-btn").addEventListener("click", () => dialog.show());
+
+document.querySelector("#submit-btn").addEventListener("click", submitInfo);
