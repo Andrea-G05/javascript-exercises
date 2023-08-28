@@ -1,14 +1,17 @@
-function book( title, author, pages, read) {
-	this.title = title;
-	this.author = author;
-	this.pages = pages;
-	this.read = read;
+class book {
+	constructor( title, author, pages, read) {
+		this.title = title;
+		this.author = author;
+		this.pages = pages;
+		this.read = read;
+	}
+	
+	addBookToLibrary () {
+		myLibrary.push(this);
+		displayBooks()
+	}
 }
 
-function addBookToLibrary(book) {
-	myLibrary.push(book);
-	displayBooks()
-}
 
 function displayBooks() {
 	const library = document.getElementById("library")
@@ -87,11 +90,11 @@ function submitInfo (event) {
 	let pages = document.querySelector("#pages");
 	let read = document.querySelector("#read");
 
-	addBookToLibrary(new book (
+	new book (
 		title.value, 
 		author.value, 
 		(pages.value - 0),
-		read.checked));
+		read.checked).addBookToLibrary();
 
 	dialog.close();
 
@@ -109,7 +112,7 @@ function removeEntry () {
 const myLibrary = [];
 
 for(let i = 0; i < 10; i++)
-	addBookToLibrary(new book( "Metamorphosis", "Kafka", (50 + i), false));
+	new book( "Metamorphosis", "Kafka", (50 + i), false).addBookToLibrary();
 
 displayBooks();
 
